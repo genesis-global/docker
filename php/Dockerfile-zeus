@@ -1,4 +1,4 @@
-FROM atrocki/genesis-php:php7
+FROM genisyx/php:php7
 
 RUN apt-get update && \
     apt-get install -y libzmq-dev pkg-config libssl-dev supervisor
