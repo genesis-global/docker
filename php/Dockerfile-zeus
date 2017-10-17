@@ -1,5 +1,7 @@
 FROM genisyx/php:php7
 
+ADD files/php.ini /usr/local/etc/php/php.ini
+
 RUN apt-get update && \
     apt-get install -y libzmq-dev pkg-config libssl-dev supervisor
 
