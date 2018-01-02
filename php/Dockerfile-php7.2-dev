@@ -1,5 +1,5 @@
 FROM genisyx/php:php7.2
 
-RUN docker-php-pecl-install xdebug-2.6.0alpha1
+RUN docker-php-pecl-install xdebug-2.6.0beta1
 
 ADD files/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
