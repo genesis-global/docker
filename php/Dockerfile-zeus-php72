@@ -1,4 +1,4 @@
-FROM genisyx/php:php72
+FROM genisyx/php:php7.2
 
 ADD files/php.ini /usr/local/etc/php/php.ini
 
