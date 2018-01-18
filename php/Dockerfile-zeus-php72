@@ -1,0 +1,13 @@
+FROM genisyx/php:php72
+
+ADD files/php.ini /usr/local/etc/php/php.ini
+
+RUN apt-get update && \
+    apt-get install -y libzmq-dev pkg-config libssl-dev supervisor libevent-dev
+
+RUN docker-php-ext-install sockets \
+    && pecl install event \
+	&& docker-php-ext-enable event
+
+RUN docker-php-pecl-install zmq-1.1.3 && \
+    docker-php-pecl-install mongodb-1.2.8
