@@ -1,7 +1,6 @@
 FROM genisyx/php:php7.1-apache
 
 ADD files/docker-php-pecl-install /usr/local/bin
-ADD files/xdebug.ini /usr/local/etc/php/conf.d/my-xdebug-php.ini
 
 RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && curl -A "Docker" -o /tmp/blackfire-probe.tar.gz -D - -L -s https://blackfire.io/api/v1/releases/probe/php/linux/amd64/$version \
@@ -11,4 +10,4 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
 
 RUN docker-php-pecl-install xdebug-2.6.1
 
-ADD php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+ADD files/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
