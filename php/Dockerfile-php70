@@ -1,4 +1,4 @@
-FROM genisyx/php:php7.1-apache
+FROM genisyx/php:php7.0-apache
 
 ADD files/docker-php-pecl-install /usr/local/bin
 
