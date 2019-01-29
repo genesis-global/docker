@@ -4,7 +4,7 @@ ADD files/docker-php-pecl-install /usr/local/bin
 ADD files/php.ini /usr/local/etc/php/conf.d/my-php.ini
 
 RUN apt-get update && \
-    apt-get install -y zlib1g-dev libicu-dev g++ libxml2-dev zip unzip curl git libpq-dev
+    apt-get install -y zlib1g-dev libicu-dev g++ libxml2-dev zip unzip curl git libpq-dev libzip-dev
 
 RUN docker-php-ext-configure intl && \
     docker-php-ext-install intl mbstring pdo pdo_mysql pgsql pdo_pgsql bcmath soap zip opcache
