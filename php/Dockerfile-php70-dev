@@ -1,0 +1,5 @@
+FROM genisyx/php:php7
+
+RUN docker-php-pecl-install xdebug-2.5.5
+
+ADD files/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
