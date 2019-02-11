@@ -3,9 +3,7 @@ FROM php:7.3-apache
 ADD files/php.ini /usr/local/etc/php/conf.d/my-php.ini
 
 RUN apt-get update && \
-    apt-get install -y gnupg && \
-    curl -sL https://deb.nodesource.com/setup_8.x | bash && \
-    apt-get install -y zlib1g-dev libicu-dev g++ libxml2-dev zip unzip curl git libpq-dev ruby-compass nodejs build-essential
+    apt-get install -y zlib1g-dev libicu-dev g++ libxml2-dev zip unzip curl git libpq-dev libzip-dev
 
 RUN docker-php-ext-configure intl && \
     docker-php-ext-install intl mbstring bcmath zip opcache
@@ -16,6 +14,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php composer-setup.php --install-dir=/usr/bin --filename=composer && \
     php -r "unlink('composer-setup.php');"
 
-ADD files/default-site.conf /etc/apache2/sites-available/000-default.conf
+ADD files/default-symfony-site.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite && service apache2 restart
