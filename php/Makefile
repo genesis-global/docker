@@ -7,6 +7,8 @@ build_php_apache:
 	docker push genisyx/php:php7.2-apache
 	docker build --file Dockerfile-php73-apache -t genisyx/php:php7.3-apache .
 	docker push genisyx/php:php7.3-apache
+	docker build --file Dockerfile-php73-apache-sf4 -t genisyx/php:php7.3-apache-sf4 .
+	docker push genisyx/php:php7.3-apache-sf4
 	docker build --file Dockerfile-abigail-php72-apache -t genisyx/php:abigail-php7.2-apache .
 	docker push genisyx/php:abigail-php7.2-apache
 
@@ -19,6 +21,8 @@ build_php_apache_dev:
 	docker push genisyx/php:php7.2-apache-dev
 	docker build --file Dockerfile-php73-apache-dev -t genisyx/php:php7.3-apache-dev .
 	docker push genisyx/php:php7.3-apache-dev
+	docker build --file Dockerfile-php73-apache-dev-sf4 -t genisyx/php:php7.3-apache-dev-sf4 .
+	docker push genisyx/php:php7.3-apache-dev-sf4
 	docker build --file Dockerfile-abigail-php72-apache-dev -t genisyx/php:abigail-php7.2-apache-dev .
 	docker push genisyx/php:abigail-php7.2-apache-dev
 
