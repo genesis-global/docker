@@ -1,0 +1,7 @@
+FROM genisyx/php:php7.3-dev
+
+RUN apt-get update; exit 0
+RUN apt-get update
+RUN apt-get install -y freetds-common freetds-bin freetds-dev
+
+RUN docker-php-ext-install soap

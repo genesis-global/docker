@@ -1,0 +1,10 @@
+FROM genisyx/php:php7.2.20-apache
+
+ADD files/docker-php-pecl-install /usr/local/bin
+
+RUN apt-get update && \
+    curl -sL https://deb.nodesource.com/setup_8.x | bash && \
+    apt-get update && \
+    apt-get install -y ruby-compass nodejs build-essential
+
+ADD files/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini

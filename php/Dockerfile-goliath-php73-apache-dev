@@ -1,0 +1,15 @@
+FROM genisyx/php:php7.3.7-apache-dev-sf4
+
+RUN apt-get update && apt-get install -y libpng-dev libsqlite3-dev librabbitmq-dev
+
+RUN docker-php-ext-install pdo_mysql zip gd exif intl xmlwriter pdo_sqlite
+
+RUN docker-php-pecl-install amqp-1.9.4
+
+RUN docker-php-pecl-install apfd-1.0.2
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+ADD files/default-symfony4-site.conf /etc/apache2/sites-available/000-default.conf
+
+RUN a2enmod rewrite && service apache2 restart

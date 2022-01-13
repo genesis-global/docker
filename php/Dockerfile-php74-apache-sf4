@@ -1,0 +1,5 @@
+FROM genisyx/php:php7.4-apache
+
+ADD files/default-symfony4-site.conf /etc/apache2/sites-available/000-default.conf
+
+RUN a2enmod rewrite && service apache2 restart
